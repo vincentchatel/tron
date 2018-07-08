@@ -1,6 +1,6 @@
 package view;
 
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
