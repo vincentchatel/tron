@@ -24,12 +24,16 @@ public abstract class ExampleDAO extends AbstractDAO {
 
     /** The sql all examples. */
     private static String sqlAllExamples   = "{call findAllExamples()}";
+    
+    private static String sqlInsertInformationByNameAndTime = "{call infoEndGame( ?, ?)}";
 
     /** The id column index. */
-    private static int    idColumnIndex    = 1;
+    private static int    NameColumnIndex    = 1;
 
     /** The name column index. */
-    private static int    nameColumnIndex  = 2;
+    private static int    TimeColumnIndex  = 2;
+    
+    static IGame game;
 
     /**
      * Gets the example by id.
@@ -40,7 +44,7 @@ public abstract class ExampleDAO extends AbstractDAO {
      * @throws SQLException
      *             the SQL exception
      */
-    public static Example getExampleById(final int id) throws SQLException {
+   /* public static Example getExampleById(final int id) throws SQLException {
         final CallableStatement callStatement = prepareCall(sqlExampleById);
         Example example = null;
         callStatement.setInt(1, id);
@@ -63,21 +67,20 @@ public abstract class ExampleDAO extends AbstractDAO {
      * @throws SQLException
      *             the SQL exception
      */
-    public static Example getExampleByName(final String name) throws SQLException {
-        final CallableStatement callStatement = prepareCall(sqlExampleByName);
-        Example example = null;
-
+    public static void sendDataGame(String name, int time) throws SQLException {
+        final CallableStatement callStatement = prepareCall(sqlInsertInformationByNameAndTime);
+        System.out.println("requete recuperer");
+        
         callStatement.setString(1, name);
-        if (callStatement.execute()) {
-            final ResultSet result = callStatement.getResultSet();
-            if (result.first()) {
-                example = new Example(result.getInt(idColumnIndex), result.getString(nameColumnIndex));
-            }
-            result.close();
-        }
-        return example;
+        System.out.println("name recuperer");
+        
+        callStatement.setInt(2, time);
+        System.out.println("time recuperer");
+        
+        callStatement.execute();
+    
     }
-
+        	
     /**
      * Gets the all examples.
      *
@@ -85,7 +88,7 @@ public abstract class ExampleDAO extends AbstractDAO {
      * @throws SQLException
      *             the SQL exception
      */
-    public static List<Example> getAllExamples() throws SQLException {
+   /* public static List<Example> getAllExamples() throws SQLException {
         final ArrayList<Example> examples = new ArrayList<Example>();
         final CallableStatement callStatement = prepareCall(sqlAllExamples);
         if (callStatement.execute()) {
@@ -97,5 +100,5 @@ public abstract class ExampleDAO extends AbstractDAO {
             result.close();
         }
         return examples;
-    }
+    }*/
 }
