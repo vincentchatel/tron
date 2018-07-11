@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
  * @version 1.0
  */
 public class ViewFacade implements IView {
+	
+	private IFenetre fenetre;
+	
 
     /**
      * Instantiates a new view facade.
@@ -22,8 +25,16 @@ public class ViewFacade implements IView {
      * @see view.IView#displayMessage(java.lang.String)
      */
     @Override
-    public final void displayMessage(final String message) {
+    public final void displayMessage(String message) {
         JOptionPane.showMessageDialog(null, message);
+    }
+    
+    public void createWindow(IGame g) {
+    	this.fenetre = new fenetre(g);
+    }
+    
+    public void setInputListener(IGame g) {
+    	g.setInputListener(new InputListener());
     }
 
 }
