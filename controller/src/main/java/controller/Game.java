@@ -6,6 +6,10 @@ package controller;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.sql.Date;
+import java.util.List;
+
+import javax.swing.JOptionPane;
 
 import model.IMoto;
 
@@ -99,16 +103,96 @@ public class Game extends JPanel implements IGame {
 				break;
 			case GAUCHE:
 				player2.setX(player2.getX() - DELTA);
-				break;
-
-			
-			
-			
-			
-			
+				break;	
 			}
+			
+			Point oneP = new Point(player1.getX(), player1.getY());
+			Point twoP = new Point(player2.getX(), player2.getY());
+			
+			if(points.contains(oneP) && points.contains(twoP)) {
+				System.out.println("NO WIN");
+				endGame();
+			} 
+			else if(points.contains(oneP)) {
+				System.out.println("TWO WINS");
+				endGame(player1);
+			}
+			else if(points.contains(twoP)) {
+				System.out.println("ONE WINS");
+				endGame(player2);
+			}
+			else if(oneP.x == 0 || oneP.x == getWidth() || oneP.y == 0 || oneP.y == getHeight()) {
+				System.out.println("TWO WINS");
+				endGame(player1);
+			}
+			else if(twoP.x == 0 || twoP.x == getWidth() || twoP.y == 0 || twoP.y == getHeight()) {
+				System.out.println("ONE WINS");		
+				endGame(player2);
+			}
+			else {
+				points.add(oneP);
+				points.add(twoP);
+				
+				onePoints.add(oneP);
+				twoPoints.add(twoP);
+			}
+				
 		}
 		
+		if(gameOver && (doneRecap == false)) {
+			doneRecap = true;
+			
+			timer.stop();
+			Date dStop = new Date();
+			tempsFinale = ((int) (dStop.getTime()- dstart.getTime()))/1000;
+			System.out.println("Temps : "+ (tempsFinale+ "s"));
+			
+			if(winner == null) {
+				
+				System.out.println("Pas de vainqueur");
+				JOptionPane.showMessageDialog(null, "pas de vainqueur mais la partie a durée "+ tempsFinale +" s", "Recap de la partie", JOptionPane.INFORMATION_MESSAGE);
+				
+			}else {
+				System.out.println("Le vainqueur est " + winner.getName());
+				JOptionPane.showMessageDialog(null, "Le joueur" + winner.getName() + "a gagné en" + tempsFinale + " s", "Recap' de la partie", JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		}
+		repaint();
+	}
+		public boolean isGameOver() {
+			return gameOver;
+		}
+		
+		public IMoto getWinner() {
+			return winner;
+		}
+		
+		public void setVainqueur(IMoto winner) {
+			this.winner = winner;
+		}
+		
+		public int getTempsfinale() {
+			return tempsFinale;
+		}
+		public void setTempsFinale(int tempsFinale) {
+			this.tempsFinale = tempsFinale;
+		}
+		
+		
+		
+		public void reset() {
+			timer.stop();
+			
+			firstTime = true;
+			gameOver = false;
+			doneRecap = false;
+			
+			player1.setX(getWidth()*1/10 - SIZE + 1);
+			
+			
+			
+			
 		
 		
 		
