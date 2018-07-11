@@ -1,19 +1,24 @@
 package model;
 
+import controller.IGame;
+
 /**
  * <h1>The Class Example.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Vincent
  * @version 1.0
  */
 public class Example {
 
     /** The id. */
-    private final int id;
+    private int id;
 
     /** The name. */
-    private String    name;
+    private String name;
 
+    private String vainqueur;
+    
+    private int Time;
     /**
      * Instantiates a new example.
      *
@@ -22,12 +27,16 @@ public class Example {
      * @param name
      *            the name
      */
-    public Example(final int id, final String name) {
+    public Example(final int Time, final String vainqueur) {
         super();
-        this.id = id;
-        this.name = name;
+        this.Time = Time;
+        this.vainqueur = vainqueur;
     }
 
+    
+    public int setTime() {
+    	return this.Time;
+    }
     /**
      * Gets the id.
      *
@@ -43,7 +52,7 @@ public class Example {
      * @return the name
      */
     public String getName() {
-        return this.name;
+        return this.vainqueur;
     }
 
     /**
@@ -52,8 +61,8 @@ public class Example {
      * @param name
      *            the new name
      */
-    public void setName(final String name) {
-        this.name = name;
+    public void setName(String vainqueur) {
+        this.vainqueur = vainqueur;
     }
 
     /*
@@ -62,6 +71,6 @@ public class Example {
      */
     @Override
     public String toString() {
-        return this.getId() + " : " + this.getName();
+        return this.setTime() + " s : vainqueur " + this.getName();
     }
 }
