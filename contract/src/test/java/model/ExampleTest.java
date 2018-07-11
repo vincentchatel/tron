@@ -21,7 +21,7 @@ public class ExampleTest {
 
     @Before
     public void setUp() throws Exception {
-        this.example = new Example(1, "Example test");
+        this.example = new Example(1, "player1");
     }
 
     @After
@@ -30,28 +30,28 @@ public class ExampleTest {
 
     @Test
     public void testGetId() {
-        final int expected = 1;
+        final int expected = 0;
         assertEquals(expected, this.example.getId());
     }
 
     @Test
     public void testGetName() {
-        final String expected = "Example test";
+        final String expected = "player1";
         assertEquals(expected, this.example.getName());
     }
 
     @Test
     public void testSetName() {
-        String expected = "Example test";
+        String expected = "player1";
         assertEquals(expected, this.example.getName());
-        expected = "Example test modified";
+        expected = "player2";
         this.example.setName(expected);
         assertEquals(expected, this.example.getName());
     }
 
     @Test
     public void testToString() {
-        final String expected = "1 : Example test";
+        final String expected = "1 s : vainqueur player1";
         assertEquals(expected, this.example.toString());
     }
 
