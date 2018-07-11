@@ -10,8 +10,10 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 import model.IMoto;
+import view.IInputListener;
 
 /**
  * @author Vincent
@@ -189,22 +191,61 @@ public class Game extends JPanel implements IGame {
 			doneRecap = false;
 			
 			player1.setX(getWidth()*1/10 - SIZE + 1);
+			player1.setY(getHeight()*1/2);
 			
+			player2.setX(getWidth()*9/10);
+			player2.setY(getHeight()*1/2);
 			
+			points.clear();
+			onePoints.clear();
+			twoPoints.clear();
 			
+			player1.reset();
+			player2.reset();
+			winner = null;
 			
+			timer.start();
+				
 		
+	}
 		
+	public void endGame() {
+		timer.stop();
 		
+		gameOver = true;
+	}
+	
+	
+	
+	public void endGame(IMoto winner) {
+		this.winner = winner;
+		gameOver = true;
 		
 	}
 	
+	
+	public void pause() {
+		if(!gameOver) {
+			if(timer.isRunning()) {
+				timer.stop();
+			}else {
+				timer.start();
+			}
+		}
+	}
 	 
+	public void actionPerformed(ActionEvent e) {
+		
+	}
 	
+	public IInputListener getInputListener() {
+		return this.inputListener;
+	}
 	
+	public void setInputListener(IInputListener inputListener) {
+		this.inputListener = inputListener;
+		inputListener.debut(player1, player2, this);
+	}
 	
-	
-	
-
 	
 }
