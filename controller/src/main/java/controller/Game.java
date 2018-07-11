@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
+import model.IMoto;
+
 /**
  * @author Vincent
  *
@@ -62,6 +64,56 @@ public class Game extends JPanel implements IGame {
 			g2d.fill(new Rectangle2D.Double(p.getX(),p.getY(), SIZE, SIZE));
 		}
    }
+	
+	public void update() {
+		if (firstTime) {
+			reset();
+			firstTime = false;
+			dstart = new Date();
+		}
+		
+		if(!gameOver) {
+			switch(player1.getDirection()) {
+			case HAUT:
+				player1.setY(player1.getY() - DELTA);
+				break;
+			case DROITE:
+				player1.setX(player1.getX() + DELTA);
+				break;
+			case BAS:
+				player1.setY(player1.getY() + DELTA);
+				break;
+			case GAUCHE: 
+				player1.setX(player1.getX() - DELTA);
+				break;	
+			}
+			switch(player2.getDirection()) {
+			case HAUT:
+				player2.setY(player2.getY() - DELTA);
+				break;
+			case DROITE:
+				player2.setX(player2.getX() + DELTA);
+				break;
+			case BAS: 
+				player2.setY(player2.getY() + DELTA);
+				break;
+			case GAUCHE:
+				player2.setX(player2.getX() - DELTA);
+				break;
+
+			
+			
+			
+			
+			
+			}
+		}
+		
+		
+		
+		
+		
+	}
 	
 	 
 	
