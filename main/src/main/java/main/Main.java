@@ -25,8 +25,8 @@ public abstract class Main {
 
         try {
             controller.start();
-        } catch (final SQLException exception) {
-            exception.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
