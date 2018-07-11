@@ -12,10 +12,10 @@ import java.sql.Statement;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-final class BoulderDashBDDConnector {
+final class TronBDDConnector {
 
     /** The instance. */
-    private static BoulderDashBDDConnector instance;
+    private static TronBDDConnector instance;
 
     /** The login. */
     private static String                  user     = "root";
@@ -24,7 +24,7 @@ final class BoulderDashBDDConnector {
     private static String                  password = "123456789";
 
     /** The url. */
-    private static String                  url      = "jdbc:mysql://localhost:3306/lorann";
+    private static String                  url      = "jdbc:mysql://localhost/tron?useSSL=false&serverTimezone=UTC";
 
     /** The connection. */
     private Connection                     connection;
@@ -35,7 +35,7 @@ final class BoulderDashBDDConnector {
     /**
      * Instantiates a new boulder dash BDD connector.
      */
-    private BoulderDashBDDConnector() {
+    private TronBDDConnector() {
         this.open();
     }
 
@@ -44,9 +44,9 @@ final class BoulderDashBDDConnector {
      *
      * @return single instance of BoulderDashBDDConnector
      */
-    public static BoulderDashBDDConnector getInstance() {
+    public static TronBDDConnector getInstance() {
         if (instance == null) {
-            setInstance(new BoulderDashBDDConnector());
+            setInstance(new TronBDDConnector());
         }
         return instance;
     }
@@ -57,8 +57,8 @@ final class BoulderDashBDDConnector {
      * @param instance
      *            the new instance
      */
-    private static void setInstance(final BoulderDashBDDConnector instance) {
-        BoulderDashBDDConnector.instance = instance;
+    private static void setInstance(final TronBDDConnector instance) {
+        TronBDDConnector.instance = instance;
     }
 
     /**
@@ -68,8 +68,8 @@ final class BoulderDashBDDConnector {
      */
     private boolean open() {
         try {
-            this.connection = DriverManager.getConnection(BoulderDashBDDConnector.url, BoulderDashBDDConnector.user,
-                    BoulderDashBDDConnector.password);
+            this.connection = DriverManager.getConnection(TronBDDConnector.url, TronBDDConnector.user,
+                    TronBDDConnector.password);
             this.statement = this.connection.createStatement();
             return true;
         } catch (final SQLException exception) {
