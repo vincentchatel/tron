@@ -98,60 +98,6 @@ public class ControllerFacade implements IController {
     	
     }
     	
-    	
-    	public IView getView() {
-    		return this.view;	
-    	}
-    	
-    	
-    	/**
-    	 * Gets the model
-    	 * 
-    	 * @return the model
-    	 */
-    	
-    	public IModel getModel() {
-    		return this.model;
-    	}
-    	
-}
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     /**
      * Gets the view.
