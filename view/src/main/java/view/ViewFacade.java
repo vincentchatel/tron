@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.JOptionPane; 
 
+import controller.IGame;
+
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
@@ -30,7 +32,7 @@ public class ViewFacade implements IView {
     }
     
     public void createWindow(IGame g) {
-    	this.fenetre = new fenetre(g);
+    	this.fenetre = new Fenetre(g);
     }
     
     public void setInputListener(IGame g) {
