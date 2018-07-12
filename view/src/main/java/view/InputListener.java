@@ -5,6 +5,8 @@ import java.awt.event.KeyEvent;
 
 import model.Direction;
 import model.IMoto;
+import view.*;
+import controller.*;
 
 
 public class InputListener extends KeyAdapter implements IInputListener{
