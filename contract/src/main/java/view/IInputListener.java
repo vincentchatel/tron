@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import model.IMoto;
+import controller.IGame;
 
 public interface IInputListener {
 	
