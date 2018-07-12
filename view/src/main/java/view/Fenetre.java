@@ -1,9 +1,9 @@
 package view;
 
 import java.awt.*;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+import controller.IGame;
+import view.InputListener;
 
 public class Fenetre implements IFenetre{
 	
@@ -16,7 +16,7 @@ public class Fenetre implements IFenetre{
 		JFrame f = new JFrame("Tron");
 		InputListener inputListener = new InputListener();
 		
-		g.setInputListener(inputLisetener;
+		g.setInputListener(inputListener);
 		p.setBackground(Color.BLACK);
 		f.setSize(width, height);
 		f.add(p);
