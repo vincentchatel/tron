@@ -6,6 +6,7 @@ import java.util.List;
 import model.Example;
 import model.IModel;
 import view.IView;
+import controller.Game;
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
@@ -103,11 +104,17 @@ public class ControllerFacade implements IController {
     	}
     	
     	
+    	/**
+    	 * Gets the model
+    	 * 
+    	 * @return the model
+    	 */
+    	
     	public IModel getModel() {
     		return this.model;
     	}
     	
-    	
+}
     	
     	
     	
