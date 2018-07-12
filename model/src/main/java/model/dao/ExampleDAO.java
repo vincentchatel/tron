@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Example;
+import controller.IGame;
 
 /**
  * <h1>The Class ExampleDAO.</h1>
