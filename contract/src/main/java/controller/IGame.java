@@ -1,6 +1,11 @@
 package controller;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import model.IMoto;
+import view.IInputListener;
 
 public interface IGame extends ActionListener{
 
