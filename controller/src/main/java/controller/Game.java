@@ -13,7 +13,7 @@ import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -29,6 +29,7 @@ import view.IInputListener;
  *
  */
 public class Game extends JPanel implements IGame {
+	
 	
 	public static int DELTA = 1;
 	public static int SIZE = 1;
@@ -61,6 +62,7 @@ public class Game extends JPanel implements IGame {
 	List<Point> points = new ArrayList<Point>();
 	List<Point> onePoints = new ArrayList<Point>();
 	List<Point> twoPoints = new ArrayList<Point>();
+	private IInputListener inputListener;
 	
 	
 	public void paintComponent(Graphics g) {
@@ -247,14 +249,26 @@ public class Game extends JPanel implements IGame {
 		
 	}
 	
+	
+	
 	public IInputListener getInputListener() {
 		return this.inputListener;
 	}
+	
+	
+	
 	
 	public void setInputListener(IInputListener inputListener) {
 		this.inputListener = inputListener;
 		inputListener.debut(player1, player2, this);
 	}
-	
-	
+
+	@Override
+	public int getTempsFinale() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
+	
+	
+
