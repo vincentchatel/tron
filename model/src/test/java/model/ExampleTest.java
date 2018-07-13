@@ -10,8 +10,7 @@ import org.junit.Test;
 
 /**
  * 
- * @author Ludovic Pierson
- *
+ * @author Vincent
  */
 public class ExampleTest {
     private Example example;
