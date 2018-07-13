@@ -11,37 +11,21 @@ import java.util.List;
  */
 public interface IModel {
 	
+	/**
+	 * the method for send information of the game
+	 * @param name - the name of the winner
+	 * @param time - the duration of the game
+	 * @throws SQLException - the SQL Exception
+	 */
+	
 	void sendDataGame(String name, int time) throws SQLException;
 
-    /**
-     * Gets the example by id.
-     *
-     * @param id
-     *            the id
-     * @return the example by id
-     * @throws SQLException
-     *             the SQL exception
-     */
-    
-
-    /**
-     * Gets the example by name.
-     *
-     * @param name
-     *            the name
-     * @return the example by name
-     * @throws SQLException
-     *             the SQL exception
-     */
-   
-
-    /**
-     * Gets the all examples.
-     *
-     * @return the all examples
-     * @throws SQLException
-     *             the SQL exception
- 
-     */
+   /** 
+    * Create the both "LightCycle"
+    * 
+    * @param joueur - number of the player
+    * @param nom - name of the player
+    * @return two lightCycle
+    */
     IMoto createMoto(int joueur, String nom);
 }

@@ -11,13 +11,29 @@ import controller.*;
 
 public class InputListener extends KeyAdapter implements IInputListener{
 	
+	/**
+	 * The player 1
+	 */
+	
 	IMoto player1;
+	
+	/** 
+	 * The player 2 
+	 */
+	
 	IMoto player2;
 	
 	IGame game;
 	
+	/** 
+	 * Debut of the game
+	 */
+	
 	boolean debut = false;
 	
+	/** 
+	 * This method permit to initialize the both players and the game
+	 */
 	
 	public void debut(IMoto player1, IMoto player2, IGame game) {
 		this.player1 = player1;
@@ -27,6 +43,10 @@ public class InputListener extends KeyAdapter implements IInputListener{
 		
 	}
 
+	/**
+	 * Permit to define all the different key for play 
+	 */
+	
 	public void keyPressed(KeyEvent e) {
 		super.keyPressed(e);
 		Direction direction1 = player1.getDirection();

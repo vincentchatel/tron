@@ -18,7 +18,17 @@ public interface IView {
      */
     void displayMessage(String message);
     
+    /**
+     * Create the window
+     * @param g
+     */
+    
     void createWindow(IGame g);
+    
+    /**
+     * Set the inputListener
+     * @param g
+     */
     
     public void setInputListener(IGame g);
 }

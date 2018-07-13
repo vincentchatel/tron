@@ -19,29 +19,19 @@ public final class ModelFacade implements IModel {
     public ModelFacade() {
         super();
     }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleById(int)
+   
+    /** 
+     * This method send the data of the game at the end of the game
+     * 
      */
     @Override
     public void sendDataGame(String name, int time) throws SQLException {
          ExampleDAO.sendDataGame(name, time);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleByName(java.lang.String)
-     */
-    /*@Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getAllExamples()
-    /* */
+ /** 
+  * This method permit to create a new moto
+  */
    
     public IMoto createMoto(int joueur, String nom) {
     	return new Moto(joueur, nom);

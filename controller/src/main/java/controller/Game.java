@@ -167,7 +167,7 @@ public class Game extends JPanel implements IGame {
 				
 			}else {
 				System.out.println("Le vainqueur est " + winner.getName());
-				JOptionPane.showMessageDialog(null, "Le joueur" + winner.getName() + "a gagné en" + tempsFinale + " s", "Recap' de la partie", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Le joueur " + winner.getName() + " a gagné en " + tempsFinale + " s", "Recap' de la partie", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 		}

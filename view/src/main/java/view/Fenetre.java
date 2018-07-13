@@ -7,9 +7,22 @@ import view.InputListener;
 
 public class Fenetre implements IFenetre{
 	
+	/**
+	 * The Height
+	 */
+	
 	public int height = 400;
+	
+	/**
+	 * The Width
+	 */
+	
 	public int width = 600;
 	
+	/**
+	 * The constructor can create the window 
+	 * @param g
+	 */
 	
 	public Fenetre(IGame g) {
 		JPanel p = (JPanel)g;
